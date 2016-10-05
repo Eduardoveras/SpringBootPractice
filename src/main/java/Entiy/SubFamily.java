@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "subfamily")
-public class SubFamily {
+public class SubFamily implements Serializable{
     //Attributes
     @Id
     private String subFamilyKey;
