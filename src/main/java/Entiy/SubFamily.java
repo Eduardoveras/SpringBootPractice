@@ -3,10 +3,7 @@
  */
 package Entiy;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -16,6 +13,7 @@ public class SubFamily implements Serializable{
     //Attributes
     @Id
     private String subFamilyKey;
+    @Column(unique = true)
     private String subFamilyName;
     @ManyToOne
     private Family family;
