@@ -5,11 +5,12 @@ package Entiy;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "equipment")
-public class Equipment {
+public class Equipment implements Serializable{
     // Attributes
     private String equipmentId;
     private String equipmentName;
