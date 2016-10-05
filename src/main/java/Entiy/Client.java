@@ -5,9 +5,11 @@ package Entiy;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "client")
 public class Client implements Serializable{
     // Attributes
     @Id

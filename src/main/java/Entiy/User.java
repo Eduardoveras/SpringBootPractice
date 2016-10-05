@@ -5,13 +5,16 @@ package Entiy;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "user")
 public class User implements Serializable{
     // Attributes
     @Id
     private String username;
+    private String photo;
     private String firstName;
     private String lastName;
     private String password;
@@ -68,5 +71,13 @@ public class User implements Serializable{
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }
