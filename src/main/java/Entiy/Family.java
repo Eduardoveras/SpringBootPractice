@@ -3,6 +3,7 @@
  */
 package Entiy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +16,7 @@ public class Family implements Serializable{
     // Attributes
     @Id
     private String familyKey;
+    @Column(unique = true)
     private String familyName;
 
     // Constructors

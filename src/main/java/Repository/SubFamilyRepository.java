@@ -14,6 +14,8 @@ public interface SubFamilyRepository extends JpaRepository<SubFamily, String>{
 
     public SubFamily findBySubFamilyKey(String subFamilyKey);
 
+    public  SubFamily findBySubFamilyName(String subFamilyName);
+
     @Query("select s from subfamily s where s.family.familyKey = :familyKey")
     public List<SubFamily> findByFamilyKey(@Param("familyKey") String familyKey);
 }

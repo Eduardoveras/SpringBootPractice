@@ -8,6 +8,8 @@ import Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClientService {
 
@@ -21,5 +23,9 @@ public class ClientService {
 
     public Client findClient(String identificationNumber){
         return clientRepository.findByIdentificationNumber(identificationNumber);
+    }
+
+    public List<Client> findAllClients(){
+        return clientRepository.findAll();
     }
 }

@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface FamilyRepository extends JpaRepository<Family, String>{
 
     public Family findByFamilyKey(String familyKey);
+
+    public Family findByFamilyName(String familyName);
 }

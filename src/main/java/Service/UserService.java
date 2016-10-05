@@ -8,6 +8,8 @@ import Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -17,7 +19,7 @@ public class UserService {
     // Core Functions
     public void createNewUserAccount(String username, String firstName, String lastName, String password){
         if(isUsernameTaken(username))
-            throw new IllegalArgumentException("The user name: " + username + " is already taken");
+            throw new IllegalArgumentException("\n\nThe user name: " + username + " is already taken");
         else
             userRepository.save(new User(username, firstName, lastName, password, false));
     }
@@ -32,6 +34,10 @@ public class UserService {
             user.setAdmin(true);
             userRepository.save(user);
         }
+    }
+
+    public List<User> findAllUsers(){
+        return userRepository.findAll();
     }
 
     // Auxiliary Functions
