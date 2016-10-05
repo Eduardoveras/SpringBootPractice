@@ -3,6 +3,7 @@
  */
 package Service;
 
+import Entiy.Equipment;
 import Entiy.Family;
 import Entiy.SubFamily;
 import Repository.EquipmentRepository;
@@ -61,6 +62,34 @@ public class InventoryService {
         return subFamilyRepository.findAll();
     }
 
+    // Equipment Related Functions
+    public void registerNewEquipment(String equipmentName, String subFamilyKey, Integer stock){
+        if (doesEquipmentNameExist(equipmentName))
+            throw new IllegalArgumentException("\n\nThis equipment name: " + equipmentName + " is unavailable");
+
+        if (!doesSubFamilyKeyExist(subFamilyKey))
+            throw new IllegalArgumentException("\n\nThis subfamily key is invalid");
+
+        if (stock <= 0)
+            throw new IllegalArgumentException("\n\nThe stock quantity must be positive");
+
+        equipmentRepository.save(new Equipment(equipmentName, subFamilyRepository.findBySubFamilyKey(subFamilyKey), stock));
+    }
+
+    public void restockEquipment(String equipmentId, Integer stock){ // This function ADDS to the already existing stock; DOES NOT MODIFY
+        if (!doesEquipmentIdExist(equipmentId))
+            throw new IllegalArgumentException("\n\nThis equipment id is invalid");
+
+        if (stock <= 0)
+            throw new IllegalArgumentException("\n\nThe stock quantity must be positive");
+
+        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
+
+        equipment.setStock(equipment.getStock() + stock);
+
+        equipmentRepository.save(equipment);
+    }
+
     // Auxiliary Functions
     private boolean doesFamilyNameExist(String familyName){
         Family family = familyRepository.findByFamilyName(familyName);
@@ -78,5 +107,23 @@ public class InventoryService {
         SubFamily subFamily = subFamilyRepository.findBySubFamilyName(subFamilyName);
 
         return (subFamily != null);
+    }
+
+    private boolean doesSubFamilyKeyExist(String subFamilyKey){
+        SubFamily subFamily = subFamilyRepository.findBySubFamilyKey(subFamilyKey);
+
+        return (subFamily != null);
+    }
+
+    private boolean doesEquipmentNameExist(String equipmentName){
+        Equipment equipment = equipmentRepository.findByEquipmentName(equipmentName);
+
+        return (equipment != null);
+    }
+
+    private boolean doesEquipmentIdExist(String equipmentId){
+        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
+
+        return (equipment != null);
     }
 }
