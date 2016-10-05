@@ -4,6 +4,7 @@
 package Entiy;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.UUID;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Table(name = "family")
 public class Family implements Serializable{
     // Attributes
+    @Id
     private String familyKey;
     private String familyName;
 

@@ -17,22 +17,26 @@ public class Receipt {
     @Id
     private String transactionId;
     private Date transactionDate;
-    private float totalprice;
+    private float totalPrice;
     @ManyToOne
     private User borrower;
+    @ManyToOne
+    private Equipment equipment;
 
-    // Constructor
+    // Constructors
     public Receipt(){
 
     }
 
-    public Receipt(Date transactionDate, float totalprice, User borrower){
-        this.setTransactionId("PUCMM-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
+    public Receipt(Date transactionDate, float totalPrice, User borrower, Equipment equipment){
+        this.setTransactionId("PUCMM-R-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
         this.setTransactionDate(transactionDate);
-        this.setTotalprice(totalprice);
+        this.setTotalPrice(totalPrice);
         this.setBorrower(borrower);
+        this.setEquipment(equipment);
     }
 
+    // Getters and Setters
     public String getTransactionId() {
         return transactionId;
     }
@@ -49,12 +53,12 @@ public class Receipt {
         this.transactionDate = transactionDate;
     }
 
-    public float getTotalprice() {
-        return totalprice;
+    public float getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalprice(float totalprice) {
-        this.totalprice = totalprice;
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public User getBorrower() {
@@ -63,5 +67,13 @@ public class Receipt {
 
     public void setBorrower(User borrower) {
         this.borrower = borrower;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
     }
 }
