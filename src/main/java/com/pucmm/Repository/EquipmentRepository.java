@@ -1,9 +1,9 @@
 /**
  * Created by Djidjelly Siclait on 10/5/2016.
  */
-package Repository;
+package com.pucmm.Repository;
 
-import Entiy.Equipment;
+import com.pucmm.Entiy.Equipment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

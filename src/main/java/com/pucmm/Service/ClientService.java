@@ -1,10 +1,10 @@
 /**
  * Created by Djidjelly Siclait on 10/5/2016.
  */
-package Service;
+package com.pucmm.Service;
 
-import Entiy.Client;
-import Repository.ClientRepository;
+import com.pucmm.Entiy.Client;
+import com.pucmm.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

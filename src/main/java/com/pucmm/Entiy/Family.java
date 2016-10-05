@@ -1,7 +1,7 @@
 /**
  * Created by Djidjelly Siclait on 10/5/2016.
  */
-package Entiy;
+package com.pucmm.Entiy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,14 +1,14 @@
 /**
  * Created by Djidjelly Siclait on 10/5/2016.
  */
-package Service;
+package com.pucmm.Service;
 
-import Entiy.Equipment;
-import Entiy.Family;
-import Entiy.SubFamily;
-import Repository.EquipmentRepository;
-import Repository.FamilyRepository;
-import Repository.SubFamilyRepository;
+import com.pucmm.Entiy.Equipment;
+import com.pucmm.Entiy.Family;
+import com.pucmm.Entiy.SubFamily;
+import com.pucmm.Repository.EquipmentRepository;
+import com.pucmm.Repository.FamilyRepository;
+import com.pucmm.Repository.SubFamilyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
