@@ -3,7 +3,6 @@
  */
 package Repository;
 
-
 import Entiy.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
