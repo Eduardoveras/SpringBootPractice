@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class Client implements Serializable{
     // Attributes
     @Id
-    @Column(name = "identificationnumber")
     private String identificationNumber; // Cedula
     @Column(name = "firstname")
     private String firstName;

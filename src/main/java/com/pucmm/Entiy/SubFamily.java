@@ -12,9 +12,7 @@ import java.util.UUID;
 public class SubFamily implements Serializable{
     //Attributes
     @Id
-    @Column(name = "subfamilykey")
     private String subFamilyKey;
-    @Column(unique = true, name = "subfamilyname")
     private String subFamilyName;
     @ManyToOne
     private Family family;

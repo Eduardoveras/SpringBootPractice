@@ -15,13 +15,13 @@ public interface ReceiptRepository extends JpaRepository<Receipt, String>{
 
     Receipt findByTransactionId(String transactionId);
 
-    @Query("select r from Receipt r where r.transactiondate = :transactionDate")
+    @Query("select r from Receipt r where r.transactionDate = :transactionDate")
     List<Receipt> findByTransactionDate(@Param("transactionDate") Date transactionDate);
 
-    @Query("select r from Receipt r where r.borrower.identifiactionnumber = :identificationNumber")
+    @Query("select r from Receipt r where r.borrower.identificationNumber = :identificationNumber")
     List<Receipt> findByBorrower(@Param("identificationNumber") String identificationNumber);
 
-    @Query("select r from Receipt r where r.equipment.equipmentid = :equipmentId")
+    @Query("select r from Receipt r where r.equipment.equipmentId = :equipmentId")
     List<Receipt> findByEquipent(@Param("equipmentId") String equipmentId);
 /*
     @Query("select r from Receipt r where r.tansactiondate between :beginning and :ending")

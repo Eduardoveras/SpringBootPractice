@@ -13,19 +13,14 @@ import java.util.UUID;
 public class Rent implements Serializable{
     // Attributes
     @Id
-    @Column(name = "rentid")
     private String rentId;
-    @Column(name = "startdate")
     private Date startDate;
-    @Column(name = "promiseddate")
     private Date promisedDate;
-    @Column(name = "pricerate")
     private float priceRate; // Price per day
     @ManyToOne
-    private User borrower;
+    private Client borrower;
     @ManyToOne
     private Equipment equipment;
-    @Column(name = "isactive")
     private boolean active;
 
     // Constructors
@@ -33,7 +28,7 @@ public class Rent implements Serializable{
 
     }
 
-    public Rent(Date promisedDate, float priceRate, User borrower, Equipment equipment){
+    public Rent(Date promisedDate, float priceRate, Client borrower, Equipment equipment){
         this.setRentId("PUCMM-T-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
 
         java.util.Date utilDate = new java.util.Date();
@@ -79,11 +74,11 @@ public class Rent implements Serializable{
         this.priceRate = priceRate;
     }
 
-    public User getBorrower() {
+    public Client getBorrower() {
         return borrower;
     }
 
-    public void setBorrower(User borrower) {
+    public void setBorrower(Client borrower) {
         this.borrower = borrower;
     }
 

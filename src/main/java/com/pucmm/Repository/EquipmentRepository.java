@@ -16,9 +16,9 @@ public interface EquipmentRepository extends JpaRepository<Equipment, String>{
 
     Equipment findByEquipmentName(String equipmentName);
 
-    @Query("select e from Equipment e where e.subFamily.subfamilykey = :subFamilyKey")
+    @Query("select e from Equipment e where e.subFamily.subFamilyKey = :subFamilyKey")
     List<Equipment> findBySubFamilyKey(@Param("subFamilyKey") String subfamilyKey);
 
-    @Query("select e from Equipment e where e.subFamily.family.familykey = :familyKey")
+    @Query("select e from Equipment e where e.subFamily.family.familyKey = :familyKey")
     List<Equipment> findByFamilyKey(@Param("familyKey") String familyKey);
 }

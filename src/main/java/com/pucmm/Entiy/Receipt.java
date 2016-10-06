@@ -13,14 +13,11 @@ import java.util.UUID;
 public class Receipt implements Serializable{
     // Attributes
     @Id
-    @Column(name = "transactionid")
     private String transactionId;
-    @Column(name = "transactiondate")
     private Date transactionDate;
-    @Column(name = "totalprice")
     private float totalPrice;
     @ManyToOne
-    private User borrower;
+    private Client borrower;
     @ManyToOne
     private Equipment equipment;
 
@@ -29,7 +26,7 @@ public class Receipt implements Serializable{
 
     }
 
-    public Receipt(Date transactionDate, float totalPrice, User borrower, Equipment equipment){
+    public Receipt(Date transactionDate, float totalPrice, Client borrower, Equipment equipment){
         this.setTransactionId("PUCMM-R-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
         this.setTransactionDate(transactionDate);
         this.setTotalPrice(totalPrice);
@@ -62,11 +59,11 @@ public class Receipt implements Serializable{
         this.totalPrice = totalPrice;
     }
 
-    public User getBorrower() {
+    public Client getBorrower() {
         return borrower;
     }
 
-    public void setBorrower(User borrower) {
+    public void setBorrower(Client borrower) {
         this.borrower = borrower;
     }
 

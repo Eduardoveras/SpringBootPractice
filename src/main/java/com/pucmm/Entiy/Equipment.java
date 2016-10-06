@@ -12,13 +12,10 @@ import java.util.UUID;
 public class Equipment implements Serializable{
     // Attributes
     @Id
-    @Column(name = "equipmentid")
     private String equipmentId;
-    @Column(unique = true, name = "equipmentname")
     private String equipmentName;
     @ManyToOne
     private SubFamily subFamily;
-    @Column(name = "instock")
     private Integer stock;
 
     // Constructors

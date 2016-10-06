@@ -15,19 +15,19 @@ public interface RentRepository extends JpaRepository<Rent, String> {
 
     Rent findByRentId(String rentId);
 
-    @Query("select r from Rent r where r.startdate = :startDate")
+    @Query("select r from Rent r where r.startDate = :startDate")
     List<Rent> findByStartDate(@Param("startDate") Date startDate);
 /*
     @Query("select r from Rent r where r.startdate between :beginning and :ending")
     List<Rent> findByStartDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
 */
-    @Query("select r from Rent r where r.promiseddate = :promisedDate")
+    @Query("select r from Rent r where r.promisedDate = :promisedDate")
     List<Rent> findByPromisedDate(@Param("promisedDate") Date promisedDate);
 /*
     @Query("select r from Rent r where r.promiseddate between :beginning and :ending")
     List<Rent> findPromisedDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
 */
-    @Query("select r from Rent r where r.borrower.identifiactionnumber = :identificationNumber")
+    @Query("select r from Rent r where r.borrower.identificationNumber = :identificationNumber")
     List<Rent> findByBorrower(@Param("identificationNumber") String identificationNumber);
 
     @Query("select r from Rent r where r.equipment.equipmentId = :equipmentId")
