@@ -13,26 +13,26 @@ import java.util.List;
 
 public interface RentRepository extends JpaRepository<Rent, String> {
 
-    public Rent findByRentId(String rentId);
+    Rent findByRentId(String rentId);
 
-    @Query("select r from rent r where r.startDate = :startDate")
-    public List<Rent> findByStartDate(@Param("startDate") Date startDate);
+    @Query("select r from Rent r where r.startdate = :startDate")
+    List<Rent> findByStartDate(@Param("startDate") Date startDate);
+/*
+    @Query("select r from Rent r where r.startdate between :beginning and :ending")
+    List<Rent> findByStartDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
+*/
+    @Query("select r from Rent r where r.promiseddate = :promisedDate")
+    List<Rent> findByPromisedDate(@Param("promisedDate") Date promisedDate);
+/*
+    @Query("select r from Rent r where r.promiseddate between :beginning and :ending")
+    List<Rent> findPromisedDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
+*/
+    @Query("select r from Rent r where r.borrower.identifiactionnumber = :identificationNumber")
+    List<Rent> findByBorrower(@Param("identificationNumber") String identificationNumber);
 
-    @Query("select r from rent r where r.startDate between :startDate and :ending")
-    public List<Rent> findByStartDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
+    @Query("select r from Rent r where r.equipment.equipmentId = :equipmentId")
+    List<Rent> findByEquipent(@Param("equipmentId") String equipmentId);
 
-    @Query("select r from rent where r.promisedDate = :promisedDate")
-    public List<Rent> findByPromisedDate(@Param("promisedDate") Date promisedDate);
-
-    @Query("select r from rent r where r.promisedDate between :startDate and :ending")
-    public List<Rent> findPromisedDateBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
-
-    @Query("select r from rent r where r.borrower.identifiactionNumber = :identificationNumber")
-    public List<Rent> findByBorrower(@Param("identificationNumber") String identificationNumber);
-
-    @Query("select r from rent r where r.equipment.equipmentId = :equipmentId")
-    public List<Rent> findByEquipent(@Param("equipmentId") String equipmentId);
-
-    @Query("select r from rent r where r.active = :active")
-    public List<Rent> findStillActive(@Param("active") boolean active);
+    @Query("select r from Rent r where r.active = :active")
+    List<Rent> findStillActive(@Param("active") boolean active);
 }

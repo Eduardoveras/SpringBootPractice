@@ -3,10 +3,7 @@
  */
 package com.pucmm.Entiy;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.UUID;
@@ -16,8 +13,11 @@ import java.util.UUID;
 public class Receipt implements Serializable{
     // Attributes
     @Id
+    @Column(name = "transactionid")
     private String transactionId;
+    @Column(name = "transactiondate")
     private Date transactionDate;
+    @Column(name = "totalprice")
     private float totalPrice;
     @ManyToOne
     private User borrower;

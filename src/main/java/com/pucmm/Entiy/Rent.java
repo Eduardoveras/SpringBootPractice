@@ -3,10 +3,7 @@
  */
 package com.pucmm.Entiy;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.UUID;
@@ -16,14 +13,19 @@ import java.util.UUID;
 public class Rent implements Serializable{
     // Attributes
     @Id
+    @Column(name = "rentid")
     private String rentId;
+    @Column(name = "startdate")
     private Date startDate;
+    @Column(name = "promiseddate")
     private Date promisedDate;
+    @Column(name = "pricerate")
     private float priceRate; // Price per day
     @ManyToOne
     private User borrower;
     @ManyToOne
     private Equipment equipment;
+    @Column(name = "isactive")
     private boolean active;
 
     // Constructors

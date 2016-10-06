@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClientRepository extends JpaRepository<Client, String>{
 
-    public Client findByIdentificationNumber(String identificationNumber);
+    Client findByIdentificationNumber(String identificationNumber);
 }

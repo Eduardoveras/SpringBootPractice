@@ -36,20 +36,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mobile')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('com.h2database:h2')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-remote-shell')
+	compile group: 'com.h2database', name: 'h2', version: '1.4.192'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 group 'SpringBootPractice'
 version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.5
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}

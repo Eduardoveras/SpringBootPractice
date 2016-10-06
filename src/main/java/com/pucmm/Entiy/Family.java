@@ -15,8 +15,9 @@ import java.util.UUID;
 public class Family implements Serializable{
     // Attributes
     @Id
+    @Column(name = "familykey")
     private String familyKey;
-    @Column(unique = true)
+    @Column(unique = true, name = "familyname")
     private String familyName;
 
     // Constructors

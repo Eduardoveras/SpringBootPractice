@@ -13,17 +13,17 @@ import java.util.List;
 
 public interface ReceiptRepository extends JpaRepository<Receipt, String>{
 
-    public Receipt findByTransactionId(String transactionId);
+    Receipt findByTransactionId(String transactionId);
 
-    @Query("select r from receipt r where r.transactionDate = :transactionDate")
-    public List<Receipt> findByTransactionDate(@Param("transactionDate") Date transactionDate);
+    @Query("select r from Receipt r where r.transactiondate = :transactionDate")
+    List<Receipt> findByTransactionDate(@Param("transactionDate") Date transactionDate);
 
-    @Query("select r from receipt r where r.borrower.identifiactionNumber = :identificationNumber")
-    public List<Receipt> findByBorrower(@Param("identificationNumber") String identificationNumber);
+    @Query("select r from Receipt r where r.borrower.identifiactionnumber = :identificationNumber")
+    List<Receipt> findByBorrower(@Param("identificationNumber") String identificationNumber);
 
-    @Query("select r from receipt r where r.equipment.equipmentId = :equipmentId")
-    public List<Receipt> findByEquipent(@Param("equipmentId") String equipmentId);
-
-    @Query("select r from receipt r where r.tansactionDate between :beginning and :ending")
-    public List<Receipt> findBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);
+    @Query("select r from Receipt r where r.equipment.equipmentid = :equipmentId")
+    List<Receipt> findByEquipent(@Param("equipmentId") String equipmentId);
+/*
+    @Query("select r from Receipt r where r.tansactiondate between :beginning and :ending")
+    List<Receipt> findBetween(@Param("beginning") Date startDate, @Param("ending") Date endDate);*/
 }

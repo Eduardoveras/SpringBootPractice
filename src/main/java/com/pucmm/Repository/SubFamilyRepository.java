@@ -12,10 +12,10 @@ import java.util.List;
 
 public interface SubFamilyRepository extends JpaRepository<SubFamily, String>{
 
-    public SubFamily findBySubFamilyKey(String subFamilyKey);
+    SubFamily findBySubFamilyKey(String subFamilyKey);
 
-    public  SubFamily findBySubFamilyName(String subFamilyName);
+    SubFamily findBySubFamilyName(String subFamilyName);
 
-    @Query("select s from subfamily s where s.family.familyKey = :familyKey")
-    public List<SubFamily> findByFamilyKey(@Param("familyKey") String familyKey);
+    @Query("select s from SubFamily s where s.family.familykey = :familyKey")
+    List<SubFamily> findByFamilyKey(@Param("familyKey") String familyKey);
 }

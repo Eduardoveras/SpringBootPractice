@@ -3,6 +3,7 @@
  */
 package com.pucmm.Entiy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,10 +14,15 @@ import java.io.Serializable;
 public class Client implements Serializable{
     // Attributes
     @Id
+    @Column(name = "identificationnumber")
     private String identificationNumber; // Cedula
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
+    @Column(name = "telephone")
     private String telephone;
+    @Column(name = "address")
     private String address;
 
     // Constructor

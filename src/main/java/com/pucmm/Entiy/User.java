@@ -3,21 +3,27 @@
  */
 package com.pucmm.Entiy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable{
     // Attributes
     @Id
+    @Column(name = "username")
     private String username;
-    private String photo;
+    private String photo; // TODO: Add photo logic
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
+    @Column(name = "pass")
     private String password;
+    @Column(name = "permission")
     private boolean admin;
 
     // Constuctors

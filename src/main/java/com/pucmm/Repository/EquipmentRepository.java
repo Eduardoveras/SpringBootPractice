@@ -12,13 +12,13 @@ import java.util.List;
 
 public interface EquipmentRepository extends JpaRepository<Equipment, String>{
 
-    public Equipment findByEquipmentId(String equipmentId);
+    Equipment findByEquipmentId(String equipmentId);
 
-    public Equipment findByEquipmentName(String equipmentName);
+    Equipment findByEquipmentName(String equipmentName);
 
-    @Query("select e from equipment e where e.subFamily.subFamilyKey = :subFamilyKey")
-    public List<Equipment> findBySubFamilyKey(@Param("subFamilyKey") String subfamilyKey);
+    @Query("select e from Equipment e where e.subFamily.subfamilykey = :subFamilyKey")
+    List<Equipment> findBySubFamilyKey(@Param("subFamilyKey") String subfamilyKey);
 
-    @Query("select e from equipment e where e.subFamily.family.familyKey = :familyKey")
-    public List<Equipment> findByFamilyKey(@Param("familyKey") String familyKey);
+    @Query("select e from Equipment e where e.subFamily.family.familykey = :familyKey")
+    List<Equipment> findByFamilyKey(@Param("familyKey") String familyKey);
 }
