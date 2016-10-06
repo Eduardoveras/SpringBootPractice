@@ -19,19 +19,26 @@
                 <h2 class="mdl-card__title-text">Acme Co.</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                <form action="#">
+                <form role="form" action="/login" method="post" action="#">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="username" />
+                        <input class="mdl-textfield__input" type="text" name="username" id="username" />
                         <label class="mdl-textfield__label" for="username">Username</label>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="password" id="userpass" />
-                        <label class="mdl-textfield__label" for="userpass">Password</label>
+                        <input class="mdl-textfield__input" type="password" name="password" id="password" />
+                        <label class="mdl-textfield__label" for="password">Password</label>
                     </div>
+                    <div>
+                        <label for="remember-me">Recordar...</label>
+                        <input type="checkbox" name="remember-me" id="remember-me">
+                    </div>
+                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Sign in</button>
                 </form>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+            <#if error.isPresent()>
+                <p>Error de login, intente nuevamente</p>
+            </#if>
+
             </div>
         </div>
     </main>

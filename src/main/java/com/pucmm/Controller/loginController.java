@@ -3,7 +3,11 @@ package com.pucmm.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 /**
  * Created by Eduardo veras on 05-Oct-16.
@@ -11,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class loginController {
 
-    @RequestMapping("/login")
-    public String home(Model model, @RequestParam(value="name", required=false, defaultValue="home") String name) {
-        model.addAttribute("name", name);
-        return "login";
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
+        return new ModelAndView("login", "error", error);
     }
 }
