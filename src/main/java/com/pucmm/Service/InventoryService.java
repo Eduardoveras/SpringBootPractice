@@ -90,6 +90,49 @@ public class InventoryService {
         equipmentRepository.save(equipment);
     }
 
+    public void lendRegisteredEquipment(String equipmentId){
+        if (!doesEquipmentIdExist(equipmentId))
+            throw new IllegalArgumentException("\n\nThis equipment id is invalid");
+
+        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
+
+        equipment.setStock(equipment.getStock() - 1);
+
+        equipmentRepository.save(equipment);
+    }
+
+    public void returnRegisteredEquipment(String equipmentId){
+
+        if (!doesEquipmentIdExist(equipmentId))
+            throw new IllegalArgumentException("\n\nThis equipment id is invalid");
+
+        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
+
+        equipment.setStock(equipment.getStock() + 1);
+
+        equipmentRepository.save(equipment);
+    }
+
+    public Equipment findEquipmentById(String equipmentId){
+        return equipmentRepository.findByEquipmentId(equipmentId);
+    }
+
+    public Equipment findEquipmentByName(String equipmentName){
+        return equipmentRepository.findByEquipmentName(equipmentName);
+    }
+
+    public List<Equipment> findEquipmentsByFamily(String familyKey){
+        return equipmentRepository.findByFamilyKey(familyKey);
+    }
+
+    public List<Equipment> findEquipmentsBySubFamily(String subFamilyKey){
+        return equipmentRepository.findBySubFamilyKey(subFamilyKey);
+    }
+
+    public List<Equipment> findAllEquipments(){
+        return equipmentRepository.findAll();
+    }
+
     // Auxiliary Functions
     private boolean doesFamilyNameExist(String familyName){
         Family family = familyRepository.findByFamilyName(familyName);
