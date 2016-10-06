@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -14,6 +16,7 @@ import java.io.Serializable;
 public class Client implements Serializable{
     // Attributes
     @Id
+    @Size(min=5, max=30)
     private String identificationNumber; // Cedula
     @Column(name = "firstname")
     private String firstName;
