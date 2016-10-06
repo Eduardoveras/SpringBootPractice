@@ -17,6 +17,12 @@ public class UserService {
     private UserRepository userRepository;
 
     // Core Functions
+    public boolean validateUserAccount(String username, String password){
+        User user = userRepository.findByUsernameAndPassword(username, password);
+
+        return (user != null);
+    }
+
     public void createNewUserAccount(String username, String firstName, String lastName, String password){
         if(isUsernameTaken(username))
             throw new IllegalArgumentException("\n\nThe user name: " + username + " is already taken");
