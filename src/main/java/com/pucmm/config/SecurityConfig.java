@@ -15,7 +15,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //Cargando los usuarios en memoria.
         auth.inMemoryAuthentication()
                 .withUser("admin")
                 .password("admin")
@@ -26,11 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("USER");
     }
 
-    /*
-     * Permite configurar las reglas de seguridad.
-     * @param http
-     * @throws Exception
-    */
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //Marcando las reglas para permitir unicamente los usuarios

@@ -35,6 +35,9 @@
                     </div>
                     <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Sign in</button>
                 </form>
+            <#if error.isPresent()>
+                <p>Error de login, intente nuevamente</p>
+            </#if>
 
             </div>
         </div>
