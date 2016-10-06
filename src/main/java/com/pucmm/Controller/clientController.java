@@ -3,12 +3,11 @@ package com.pucmm.Controller;
 import com.pucmm.Entiy.Client;
 import com.pucmm.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -24,20 +23,19 @@ public class clientController {
 
     @GetMapping("/addClient")
     public ModelAndView index(Model model) {
+        model.addAttribute("position", clientService.findAllClients().size() + 1);
         model.addAttribute("clients", clientService.findAllClients());
         return new ModelAndView("registerClientes");
     }
 
 
+    @Secured("ADMIN")
+    @RequestMapping(name = "/add", method = RequestMethod.POST)
+    public String checkPersonInfo(@RequestParam(name = "id") String id, @RequestParam(name = "first") String first, @RequestParam(name = "last") String last, @RequestParam(name = "tel") String tel, @RequestParam(name = "add") String add) {
 
-    @PostMapping("/")
-    public String checkPersonInfo(@Valid Client client, BindingResult bindingResult) {
+        clientService.registerNewClient(id, first, last, tel, add);
 
-        if (bindingResult.hasErrors()) {
-            return "form";
-        }
-
-        return "redirect:/results";
+        return "redirect:/addClient";
     }
 
 

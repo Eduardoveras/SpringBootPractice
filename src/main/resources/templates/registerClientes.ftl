@@ -15,37 +15,37 @@
         <div class="mdl-grid demo-content">
             <div class="mdl-cell mdl-cell--4-col" style="display: inline-block;">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 600px;">
-                    <form action="#" METHOD="POST" >
+                    <form action="" METHOD="POST" >
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Add Client </h2>
+                            <h2 class="mdl-card__title-text">Add Client #${position}</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="cedula" name="cedula">
+                                <input class="mdl-textfield__input" type="text" id="cedula" name="id">
                                 <label class="mdl-textfield__label" >Cedula</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="firstname" name="firstname">
+                                <input class="mdl-textfield__input" type="text" id="firstname" name="first">
                                 <label class="mdl-textfield__label" >First Name</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="lastname" name="lastname">
+                                <input class="mdl-textfield__input" type="text" id="lastname" name="last">
                                 <label class="mdl-textfield__label" >Last Name</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="telephone" name="telephone">
+                                <input class="mdl-textfield__input" type="text" id="telephone" name="tel">
                                 <label class="mdl-textfield__label">Telephone.</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="adress" name="adress">
+                                <input class="mdl-textfield__input" type="text" id="adress" name="add">
                                 <label class="mdl-textfield__label">Adress.</label>
                             </div>
                         </div>
