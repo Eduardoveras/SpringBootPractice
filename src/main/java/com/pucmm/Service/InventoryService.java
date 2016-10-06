@@ -90,29 +90,6 @@ public class InventoryService {
         equipmentRepository.save(equipment);
     }
 
-    public void lendRegisteredEquipment(String equipmentId){
-        if (!doesEquipmentIdExist(equipmentId))
-            throw new IllegalArgumentException("\n\nThis equipment id is invalid");
-
-        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
-
-        equipment.setStock(equipment.getStock() - 1);
-
-        equipmentRepository.save(equipment);
-    }
-
-    public void returnRegisteredEquipment(String equipmentId){
-
-        if (!doesEquipmentIdExist(equipmentId))
-            throw new IllegalArgumentException("\n\nThis equipment id is invalid");
-
-        Equipment equipment = equipmentRepository.findByEquipmentId(equipmentId);
-
-        equipment.setStock(equipment.getStock() + 1);
-
-        equipmentRepository.save(equipment);
-    }
-
     public Equipment findEquipmentById(String equipmentId){
         return equipmentRepository.findByEquipmentId(equipmentId);
     }

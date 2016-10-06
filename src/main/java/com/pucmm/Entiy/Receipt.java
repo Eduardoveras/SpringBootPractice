@@ -26,9 +26,12 @@ public class Receipt implements Serializable{
 
     }
 
-    public Receipt(Date transactionDate, float totalPrice, Client borrower, Equipment equipment){
+    public Receipt(float totalPrice, Client borrower, Equipment equipment){
         this.setTransactionId("PUCMM-R-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
-        this.setTransactionDate(transactionDate);
+
+        java.util.Date utilDate = new java.util.Date();
+        this.setTransactionDate(new Date(utilDate.getTime()));
+
         this.setTotalPrice(totalPrice);
         this.setBorrower(borrower);
         this.setEquipment(equipment);

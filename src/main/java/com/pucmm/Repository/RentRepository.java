@@ -34,5 +34,5 @@ public interface RentRepository extends JpaRepository<Rent, String> {
     List<Rent> findByEquipent(@Param("equipmentId") String equipmentId);
 
     @Query("select r from Rent r where r.active = :active")
-    List<Rent> findStillActive(@Param("active") boolean active);
+    List<Rent> findByActiveStatus(@Param("active") boolean active);
 }
