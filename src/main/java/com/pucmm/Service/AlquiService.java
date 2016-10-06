@@ -15,5 +15,5 @@ public class AlquiService {
     @Autowired
     private ReceiptRepository receiptRepository;
 
-    
+
 }
