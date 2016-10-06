@@ -13,8 +13,8 @@
 
         <!--LOGIN BOX-->
         <div class="mdl-grid demo-content">
-            <div class="mdl-cell mdl-cell--4-col">
-                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-cell mdl-cell--4-col" style="display: inline-block;">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 600px;">
                     <form action="#" METHOD="POST" >
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Add Client </h2>
@@ -55,6 +55,27 @@
 
                     </form>
                 </div>
+            </div>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
+                <table>
+                    <tr>
+                        <th>Id Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
+                    </tr>
+                <#list clients?sort_by("lastName") as client>
+                    <tr>
+                        <td>${client.getIdentificationNumber()}</td>
+                        <td>${client.getFirstName()}</td>
+                        <td>${client.getLastName()}</td>
+                        <td>${client.getTelephone()}</td>
+                        <td>${client.getAddress()}</td>
+                    </tr>
+                </#list>
+                </table>
             </div>
         </div>
         <!--END LOGIN BOX-->
