@@ -37,7 +37,7 @@
             <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px; display: inline-block;">
                 <table>
                     <tr>
-                        <th>Sub-Family Legend</th>
+                        <th>Families</th>
                     </tr>
                     <tr>
                         <th>Key</th>
@@ -59,7 +59,7 @@
                     <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px; display: inline-block;">
                         <form action="/addNewSubFamily" METHOD="POST" >
                             <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">Add Family #${scount}</h2>
+                                <h2 class="mdl-card__title-text">Add Sub-Family #${scount}</h2>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

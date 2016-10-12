@@ -102,11 +102,13 @@ public class InventoryService {
         return equipmentRepository.findByFamilyKey(familyKey);
     }
 
+    public Family findFamilyByFamilyName(String familyName){ return familyRepository.findByFamilyName(familyName); }
+
     public List<Equipment> findEquipmentsBySubFamilyKey(String subFamilyKey){
         return equipmentRepository.findBySubFamilyKey(subFamilyKey);
     }
 
-    public SubFamily findEquipmentBySubFamilyName(String subFamilyName){ return subFamilyRepository.findBySubFamilyName(subFamilyName); }
+    public SubFamily findSubFamilyBySubFamilyName(String subFamilyName){ return subFamilyRepository.findBySubFamilyName(subFamilyName); }
 
     public List<Equipment> findAllEquipments(){
         return equipmentRepository.findAll();

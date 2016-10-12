@@ -20,7 +20,6 @@ public class EquipmentController {
     @Autowired
     private InventoryService inventoryService;
 
-
     @GetMapping("/Equipments")
     public ModelAndView index(Model model) {
         model.addAttribute("inventory", inventoryService.findAllEquipments().size() + 1);
@@ -32,9 +31,9 @@ public class EquipmentController {
 
     @Secured("ADMIN")
     @PostMapping("/addNewEquipment")
-    public String newClientSubmit(@RequestParam("name") String name, @RequestParam("subfamily") String subFamily, @RequestParam("stock") Integer stock){
+    public String newEquipment(@RequestParam("name") String name, @RequestParam("subfamily") String subFamily, @RequestParam("stock") Integer stock){
 
-        inventoryService.registerNewEquipment(name,inventoryService.findEquipmentBySubFamilyName(subFamily).getSubFamilyKey(),stock);
+        inventoryService.registerNewEquipment(name,inventoryService.findSubFamilyBySubFamilyName(subFamily).getSubFamilyKey(),stock);
 
         return "redirect:/Equipments";
     }
