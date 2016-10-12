@@ -12,7 +12,7 @@
 
 
         <!--LOGIN BOX-->
-        <div class="mdl-grid demo-content" style="display: inline-block; width: 600px">
+        <div class="mdl-grid demo-content" style="display: inline-block; width: 500px; margin: auto;">
             <div class="mdl-cell mdl-cell--4-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                     <form action="/addNewEquipment" METHOD="POST" >
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px; margin: auto;">
             <table>
                 <tr>
                     <th>Key</th>
@@ -59,7 +59,7 @@
                 </tr>
             <#list equipments?sort_by("equipmentId") as equipment>
                 <tr>
-                    <td>${equipment.getEquipmentId}</td>
+                    <td>${equipment.getEquipmentId()}</td>
                     <td>${equipment.getEquipmentName()}</td>
                     <td>${equipment.getSubFamily().getSubFamilyName()}</td>
                     <td>${equipment.getSubFamily().getFamily().getFamilyName()}</td>
@@ -69,7 +69,7 @@
             </table>
         </div>
 
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px;">
             <table>
                 <tr>
                     <th>Sub-Family Legend</th>
@@ -79,7 +79,7 @@
                     <th>Name</th>
                     <th>Family</th>
                 </tr>
-            <#list subfamilies?sort_by("subFamilyKey") as subfamily>
+            <#list subfamilies?sort_by("family") as subfamily>
                 <tr>
                     <td>${subfamily.getSubFamilyKey()}</td>
                     <td>${subfamily.getSubFamilyName()}</td>
