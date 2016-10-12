@@ -1,6 +1,7 @@
 package com.pucmm.Controller;
 
 import com.pucmm.Entiy.Client;
+import com.pucmm.Entiy.User;
 import com.pucmm.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -30,8 +31,8 @@ public class clientController {
 
 
     @Secured("ADMIN")
-    @RequestMapping(name = "/add", method = RequestMethod.POST)
-    public String checkPersonInfo(@RequestParam(name = "id") String id, @RequestParam(name = "first") String first, @RequestParam(name = "last") String last, @RequestParam(name = "tel") String tel, @RequestParam(name = "add") String add) {
+    @PostMapping("/addnew")
+    public String newClientSubmit(@RequestParam("id") String id, @RequestParam("first") String first, @RequestParam("last") String last, @RequestParam("tel") String tel, @RequestParam("add") String add){
 
         clientService.registerNewClient(id, first, last, tel, add);
 
