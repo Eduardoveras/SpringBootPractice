@@ -15,9 +15,9 @@
         <div class="mdl-grid demo-content">
             <div class="mdl-cell mdl-cell--4-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                    <form action="" METHOD="POST">
+                    <form action="/addNewUserAccount" METHOD="POST">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Welcome to URL Short</h2>
+                            <h2 class="mdl-card__title-text">Register User Account #${accounts}</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -27,21 +27,21 @@
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="firstname" name="firstname">
+                                <input class="mdl-textfield__input" type="text" id="first" name="first">
                                 <label class="mdl-textfield__label" >First Name</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="lastname" name="lastname">
+                                <input class="mdl-textfield__input" type="text" id="last" name="last">
                                 <label class="mdl-textfield__label" >Last Name</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
 
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="password" id="password" name="password">
-                                <label class="mdl-textfield__label">password.</label>
+                                <input class="mdl-textfield__input" type="password" id="pass" name="pass">
+                                <label class="mdl-textfield__label">Password</label>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -50,6 +50,29 @@
 
                     </form>
                 </div>
+            </div>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Permission</th>
+                    </tr>
+                <#list users?sort_by("username") as user>
+                    <tr>
+                        <td>${user.getUsername()}</td>
+                        <td>${user.getFirstName()}</td>
+                        <td>${user.getLastName()}</td>
+                        <#if user.isAdmin()>
+                            <td>Admin</td>
+                        <#else>
+                            <td>User</td>
+                        </#if>
+                    </tr>
+                </#list>
+                </table>
             </div>
         </div>
         <!--END LOGIN BOX-->

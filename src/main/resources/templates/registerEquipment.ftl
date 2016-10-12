@@ -88,8 +88,7 @@
             </#list>
             </table>
         </div>
-
-</div>
+    </div>
         <!--END LOGIN BOX-->
 
 

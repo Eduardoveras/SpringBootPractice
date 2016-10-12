@@ -40,13 +40,13 @@
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="tel" name="tel">
-                                <label class="mdl-textfield__label">Telephone.</label>
+                                <label class="mdl-textfield__label">Telephone</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="add" name="add">
-                                <label class="mdl-textfield__label">Address.</label>
+                                <label class="mdl-textfield__label">Address</label>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
