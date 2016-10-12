@@ -61,7 +61,7 @@
                 <tr>
                     <td>${equipment.getEquipmentId}</td>
                     <td>${equipment.getEquipmentName()}</td>
-                    <td>${equipment.getSubFamily().getSubFamilyName}</td>
+                    <td>${equipment.getSubFamily().getSubFamilyName()}</td>
                     <td>${equipment.getSubFamily().getFamily().getFamilyName()}</td>
                     <td>${equipment.getStock()}</td>
                 </tr>
@@ -72,14 +72,17 @@
         <div class="demo-card-wide mdl-card mdl-shadow--2dp">
             <table>
                 <tr>
+                    <th>Sub-Family Legend</th>
+                </tr>
+                <tr>
                     <th>Key</th>
                     <th>Name</th>
                     <th>Family</th>
                 </tr>
-            <#list subfamilies?sort_by("family") as subfamily>
+            <#list subfamilies?sort_by("subFamilyKey") as subfamily>
                 <tr>
-                    <td>${subfamily.getSubFamilyKey}</td>
-                    <td>${subfamily.getSubFamilyName}</td>
+                    <td>${subfamily.getSubFamilyKey()}</td>
+                    <td>${subfamily.getSubFamilyName()}</td>
                     <td>${subfamily.getFamily().getFamilyName()}</td>
                 </tr>
             </#list>

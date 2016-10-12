@@ -36,6 +36,6 @@ public class EquipmentController {
 
         inventoryService.registerNewEquipment(name,inventoryService.findEquipmentBySubFamilyName(subFamily).getSubFamilyKey(),stock);
 
-        return "redirect:/addClient";
+        return "redirect:/Equipments";
     }
 }
