@@ -15,7 +15,7 @@
         <div class="mdl-grid demo-content">
             <div class="mdl-cell mdl-cell--4-col" style="display: inline-block;">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 600px;">
-                    <form action="/addnew" METHOD="POST" >
+                    <form action="/addNewClient" METHOD="POST" >
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Add Client #${position}</h2>
                         </div>

@@ -22,7 +22,7 @@ public class clientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/addClient")
+    @GetMapping("/Clients")
     public ModelAndView index(Model model) {
         model.addAttribute("position", clientService.findAllClients().size() + 1);
         model.addAttribute("clients", clientService.findAllClients());
@@ -31,7 +31,7 @@ public class clientController {
 
 
     @Secured("ADMIN")
-    @PostMapping("/addnew")
+    @PostMapping("/addNewClient")
     public String newClientSubmit(@RequestParam("id") String id, @RequestParam("first") String first, @RequestParam("last") String last, @RequestParam("tel") String tel, @RequestParam("add") String add){
 
         clientService.registerNewClient(id, first, last, tel, add);
