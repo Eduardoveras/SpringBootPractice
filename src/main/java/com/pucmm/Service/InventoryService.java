@@ -98,13 +98,15 @@ public class InventoryService {
         return equipmentRepository.findByEquipmentName(equipmentName);
     }
 
-    public List<Equipment> findEquipmentsByFamily(String familyKey){
+    public List<Equipment> findEquipmentsByFamilyKey(String familyKey){
         return equipmentRepository.findByFamilyKey(familyKey);
     }
 
-    public List<Equipment> findEquipmentsBySubFamily(String subFamilyKey){
+    public List<Equipment> findEquipmentsBySubFamilyKey(String subFamilyKey){
         return equipmentRepository.findBySubFamilyKey(subFamilyKey);
     }
+
+    public SubFamily findEquipmentBySubFamilyName(String subFamilyName){ return subFamilyRepository.findBySubFamilyName(subFamilyName); }
 
     public List<Equipment> findAllEquipments(){
         return equipmentRepository.findAll();
