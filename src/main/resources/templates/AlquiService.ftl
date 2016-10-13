@@ -73,7 +73,7 @@
                         <div class="mdl-card__supporting-text">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="return" name="return">
-                                <label class="mdl-textfield__label" >Return Date</label>
+                                <label class="mdl-textfield__label" >Return Date(DD-MM-YYYY)</label>
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
@@ -98,12 +98,13 @@
 
             <br><br>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: block; width: 600px">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
                 <table>
                     <tr>
                         <th>#{totalR} Rented Equipments</th>
                     </tr>
                     <tr>
+                        <th>Rent Id</th>
                         <th>Equipment</th>
                         <th>Start Date</th>
                         <th>Promised Date</th>
@@ -112,6 +113,7 @@
                     </tr>
                 <#list rents?sort_by("promisedDate") as rent>
                     <tr>
+                        <th>${rent.getRentId()}</th>
                         <td>${rent.getEquipment().getEquipmentName()}</td>
                         <td>${rent.getStartDate()}</td>
                         <td>${rent.getPromisedDate()}</td>
@@ -124,6 +126,32 @@
                     </tr>
                 </#list>
                 </table>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <form action="/return" METHOD="POST">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Rent an Equipment</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="equip" name="equipment">
+                                <label class="mdl-textfield__label" >Equipment</label>
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="rent" name="id">
+                                <label class="mdl-textfield__label" >Rent id</label>
+                            </div>
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Register">
+                        </div>
+
+                    </form>
+                </div>
             </div>
 
         </div>

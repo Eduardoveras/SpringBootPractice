@@ -61,4 +61,12 @@ public class AlquiServiceController {
 
         return "redirect:/AlquiService";
     }
+
+    @PostMapping("/return")
+    public String returnBorrowedEquipment(@RequestParam("equipment") String equipmentName, @RequestParam("id") String rentId){
+
+        alquiService.returnRegisteredEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), rentId);
+
+        return "redirect:/AlquiService";
+    }
 }
