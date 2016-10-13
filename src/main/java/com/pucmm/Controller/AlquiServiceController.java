@@ -145,6 +145,7 @@ public class AlquiServiceController {
             }
         }
 
+        max = 0;
         for (Family f:
                 inventoryService.findAllFamilies()) {
             int count = 0;
@@ -162,6 +163,7 @@ public class AlquiServiceController {
             }
         }
 
+        max = 0;
         for (SubFamily s:
                 inventoryService.findAllSubFamilies()) {
             int count = 0;
