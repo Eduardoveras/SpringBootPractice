@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class AlquiServiceController {
@@ -30,19 +31,33 @@ public class AlquiServiceController {
     @RequestMapping("/AlquiService")
     public ModelAndView register(Model model){
 
+        java.util.Date utilDate = new java.util.Date();
+        model.addAttribute("today", new Date(utilDate.getTime()));
+
         model.addAttribute("equipments", inventoryService.findAllEquipments());
         model.addAttribute("totalE", inventoryService.findAllEquipments().size());
 
         model.addAttribute("clients", clientService.findAllClients());
         model.addAttribute("totalC", clientService.findAllClients().size());
 
+        model.addAttribute("rents", alquiService.findAllActiveRents());
+        model.addAttribute("totalR", alquiService.findAllActiveRents().size());
+
         return new ModelAndView("AlquiService");
     }
 
     @PostMapping("/lend")
-    public String registerNewLend(@RequestParam("equipment") String equipmentName, @RequestParam("return") Date promisedDate, @RequestParam("rate") float priceRate, @RequestParam("client") String clientId){
+    public String registerNewLend(@RequestParam("equipment") String equipmentName, @RequestParam("return") String promisedDate, @RequestParam("rate") float priceRate, @RequestParam("client") String clientId){
 
-        alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), promisedDate, priceRate, clientId);
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+        java.util.Date date = new java.util.Date();
+        try {
+           date = sdf1.parse(promisedDate);
+        } catch (Exception exp){
+
+        }
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), sqlDate, priceRate, clientId);
 
         return "redirect:/AlquiService";
     }

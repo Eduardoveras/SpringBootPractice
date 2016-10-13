@@ -95,6 +95,37 @@
                     </form>
                 </div>
             </div>
+
+            <br><br>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: block; width: 600px">
+                <table>
+                    <tr>
+                        <th>#{totalR} Rented Equipments</th>
+                    </tr>
+                    <tr>
+                        <th>Equipment</th>
+                        <th>Start Date</th>
+                        <th>Promised Date</th>
+                        <th>Borrower</th>
+                        <th>Status</th>
+                    </tr>
+                <#list rents?sort_by("promisedDate") as rent>
+                    <tr>
+                        <td>${rent.getEquipment().getEquipmentName()}</td>
+                        <td>${rent.getStartDate()}</td>
+                        <td>${rent.getPromisedDate()}</td>
+                        <td>${rent.getBorrower().getFirstName()} ${rent.getBorrower().getLastName()}</td>
+                        <#if rent.getPromisedDate() lt today>
+                            <td>LATE</td>
+                        <#else>
+                            <td>OK</td>
+                        </#if>
+                    </tr>
+                </#list>
+                </table>
+            </div>
+
         </div>
     </main>
 </div>
