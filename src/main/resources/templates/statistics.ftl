@@ -21,6 +21,7 @@
                         <th>Equipment</th>
                         <th>Start Date</th>
                         <th>Promised Date</th>
+                        <td>Price Rate</td>
                         <th>Borrower</th>
                         <th>Status</th>
                     </tr>
@@ -30,18 +31,19 @@
                         <td>${rent.getEquipment().getEquipmentName()}</td>
                         <td>${rent.getStartDate()}</td>
                         <td>${rent.getPromisedDate()}</td>
+                        <td>${rent.getPriceRate()}</td>
                         <td>${rent.getBorrower().getFirstName()} ${rent.getBorrower().getLastName()}</td>
                         <#if rent.isActive()>
-                            <td>OUT</td>
+                            <td>ACTIVE</td>
                         <#else>
-                            <td>RETURNED</td>
+                            <td>COMPLETED</td>
                         </#if>
                     </tr>
                 </#list>
                 </table>
             </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 900px">
                 <table>
                     <tr>
                         <th>#{totalT} Transactions</th>
@@ -55,7 +57,7 @@
                         <th>Equipment Id</th>
                         <th>Equipment Name</th>
                     </tr>
-                <#list receipts?sort_by("startDate") as receipt>
+                <#list receipts?sort_by("transactionDate") as receipt>
                     <tr>
                         <th>${receipt.getTransactionId()}</th>
                         <td>${receipt.getTransactionDate()}</td>

@@ -49,6 +49,14 @@ public class AlquiServiceController {
 
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
+        /*
+        try {
+            alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("9-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("20-11-2016").getTime()), 100.54f, "3");
+            alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("01-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("09-10-2016").getTime()), 100.54f, "4");
+        } catch (Exception exp){
+
+        }
+        */
 
         java.util.Date utilDate = new java.util.Date();
         model.addAttribute("today", new Date(utilDate.getTime()));
@@ -61,6 +69,18 @@ public class AlquiServiceController {
         return new ModelAndView("rents");
     }
 
+    @RequestMapping("/Statistics")
+    public ModelAndView getStatistics(Model model){
+
+        model.addAttribute("rents", alquiService.findAllRents());
+        model.addAttribute("totalR", alquiService.findAllRents().size());
+        model.addAttribute("receipts", alquiService.findAllReceipts());
+        model.addAttribute("totalT", alquiService.findAllReceipts().size());
+
+        return new ModelAndView("statistics");
+    }
+
+    // Posts
     @PostMapping("/lend")
     public String registerNewLend(@RequestParam("equipment") String equipmentName, @RequestParam("return") String promisedDate, @RequestParam("rate") float priceRate, @RequestParam("client") String clientId){
 

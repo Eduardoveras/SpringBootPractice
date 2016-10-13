@@ -21,6 +21,7 @@
                         <th>Equipment</th>
                         <th>Start Date</th>
                         <th>Promised Date</th>
+                        <th>Price Rate</th>
                         <th>Borrower</th>
                         <th>Status</th>
                     </tr>
@@ -30,6 +31,7 @@
                         <td>${rent.getEquipment().getEquipmentName()}</td>
                         <td>${rent.getStartDate()}</td>
                         <td>${rent.getPromisedDate()}</td>
+                        <td>${rent.getPriceRate()}</td>
                         <td>${rent.getBorrower().getFirstName()} ${rent.getBorrower().getLastName()}</td>
                         <#if rent.getPromisedDate() lt today>
                             <td>LATE</td>
