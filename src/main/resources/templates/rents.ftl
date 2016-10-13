@@ -46,7 +46,7 @@
 
             <br><br>
 
-            <table>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                 <tr>
                     <th>#{totalI} Equipment Returns</th>
                 </tr>
