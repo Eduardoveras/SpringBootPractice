@@ -19,7 +19,7 @@
                 <h2 class="mdl-card__title-text">Acme Co.</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                <form role="form" action="/login" method="post" action="#">
+                <form role="form" action="/loginUser" method="post">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <div class="mdl-textfield mdl-js-textfield">
                         <input class="mdl-textfield__input" type="text" name="username" id="username" />

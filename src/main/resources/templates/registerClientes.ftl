@@ -63,16 +63,14 @@
                     <h3>Clients</h3>
                     <tr>
                         <th>Id Number</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
                         <th>Telephone</th>
                         <th>Address</th>
                     </tr>
                 <#list clients?sort_by("lastName") as client>
                     <tr>
                         <td>${client.getIdentificationNumber()}</td>
-                        <td>${client.getFirstName()}</td>
-                        <td>${client.getLastName()}</td>
+                        <td><a href="/Client?id=${client.getIdentificationNumber()}">${client.getFirstName()} ${client.getLastName()}</a></td>
                         <td>${client.getTelephone()}</td>
                         <td>${client.getAddress()}</td>
                     </tr>
