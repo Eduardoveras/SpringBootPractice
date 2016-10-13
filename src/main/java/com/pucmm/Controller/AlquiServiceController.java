@@ -49,9 +49,14 @@ public class AlquiServiceController {
 
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
+        
+        java.util.Date utilDate = new java.util.Date();
+        model.addAttribute("today", new Date(utilDate.getTime()));
 
         model.addAttribute("actives", alquiService.findAllActiveRents());
+        model.addAttribute("totalA", alquiService.findAllActiveRents().size());
         model.addAttribute("inactives", alquiService.findAllCompletedRent());
+        model.addAttribute("totalI", alquiService.findAllCompletedRent().size());
 
         return new ModelAndView("rents");
     }

@@ -14,7 +14,7 @@
             <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
                 <table>
                     <tr>
-                        <th>#{totalR} Active Rents</th>
+                        <th>#{totalA} Active Rents</th>
                     </tr>
                     <tr>
                         <th>Rent Id</th>
@@ -44,7 +44,7 @@
             <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
                 <table>
                     <tr>
-                        <th>#{totalR} Equipment Returns</th>
+                        <th>#{totalI} Equipment Returns</th>
                     </tr>
                     <tr>
                         <th>Rent Id</th>
