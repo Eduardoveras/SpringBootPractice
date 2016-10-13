@@ -1,7 +1,9 @@
 package com.pucmm.Controller;
 
 import com.pucmm.Entiy.Client;
+import com.pucmm.Entiy.Rent;
 import com.pucmm.Entiy.User;
+import com.pucmm.Service.AlquiService;
 import com.pucmm.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by Eduardo veras on 06-Oct-16.
@@ -27,6 +30,18 @@ public class clientController {
         model.addAttribute("position", clientService.findAllClients().size() + 1);
         model.addAttribute("clients", clientService.findAllClients());
         return new ModelAndView("registerClientes");
+    }
+
+    @GetMapping("/Client")
+    public ModelAndView viewClient(Model model, @RequestParam("id") String identificationNumber){
+
+        List<Rent> rents = clientService.findRentHistoryForClient(identificationNumber);
+
+        model.addAttribute("client", clientService.findClient(identificationNumber));
+        model.addAttribute("rents", rents);
+        model.addAttribute("totalR", rents.size());
+
+        return new ModelAndView("clientview");
     }
 
     @Secured("ADMIN")

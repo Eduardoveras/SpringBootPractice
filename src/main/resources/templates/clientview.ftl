@@ -32,7 +32,7 @@
                         <th>Equipment</th>
                         <th>Start Date</th>
                         <th>Promised Date</th>
-                        <td>Price Rate</td>
+                        <th>Price Rate</th>
                         <th>Status</th>
                         <th>Days Out</th>
                     </tr>

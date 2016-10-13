@@ -70,7 +70,7 @@
                 <#list clients?sort_by("lastName") as client>
                     <tr>
                         <td>${client.getIdentificationNumber()}</td>
-                        <td><a href="/Client/${client.getIdentificationNumber()}">${client.getFirstName()} ${client.getLastName()}</a></td>
+                        <td><a href="/Client?id=${client.getIdentificationNumber()}">${client.getFirstName()} ${client.getLastName()}</a></td>
                         <td>${client.getTelephone()}</td>
                         <td>${client.getAddress()}</td>
                     </tr>
