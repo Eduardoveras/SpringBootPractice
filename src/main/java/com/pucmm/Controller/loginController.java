@@ -1,5 +1,7 @@
 package com.pucmm.Controller;
 
+import com.pucmm.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +17,15 @@ import java.util.Optional;
 @Controller
 public class loginController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
+    public ModelAndView getLoginPage(@RequestParam Optional<String> error, @RequestParam("username") String username, @RequestParam("password") String password) {
+
+        if(userService.validateUserAccount(username, password))
+            return new ModelAndView("AlquiService");
+
         return new ModelAndView("login", "error", error);
     }
 }
