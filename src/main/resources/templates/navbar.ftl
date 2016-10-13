@@ -1,6 +1,6 @@
 <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
     <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Home Page</span>
+        <span class="mdl-layout-title"><@spring.message "titulo" /></span>
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
