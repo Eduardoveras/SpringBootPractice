@@ -98,7 +98,7 @@
 
             <br><br>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
                 <table>
                     <tr>
                         <th>#{totalR} Rented Equipments</th>
