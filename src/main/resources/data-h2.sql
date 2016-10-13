@@ -15,3 +15,6 @@ INSERT INTO subfamily (skey, sname, family_fkey) VALUES ('PUCMM-SFA-JVAIB', 'Com
 
 INSERT INTO equipment (equipment_id, equipment_name, stock, sub_family_skey) VALUES ('PUCMM-E-87YJVGH', 'Desktop', 50, 'PUCMM-SFA-JVAIB');
 INSERT INTO equipment (equipment_id, equipment_name, stock, sub_family_skey) VALUES ('PUCMM-E-8765VGH', 'Laptop', 1, 'PUCMM-SFA-JVAIB');
+
+//INSERT INTO rent (rent_id, active, price_rate, promised_date, start_date, borrower_identification_number, equipment_equipment_id) VALUES ('PUCMM-T-ni3c3ecwc', true, 100.54, '20-NOV-2016', '9-OCT-2016', '3', 'PUCMM-E-8765VGH');
+//INSERT INTO rent (rent_id, active, price_rate, promised_date, start_date, borrower_identification_number, equipment_equipment_id) VALUES ('PUCMM-T-ni3c4rcwc', true, 100.54, '9-OCT-2016', '1-OCT-2016', '4', 'PUCMM-E-8765VGH');

@@ -13,13 +13,14 @@
 
                 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
-                        <th>#{totalR} Active Rents</th>
+                        <th>#{totalA} Active Rents</th>
                     </tr>
                     <tr>
                         <th>Rent Id</th>
                         <th>Equipment</th>
                         <th>Start Date</th>
                         <th>Promised Date</th>
+                        <th>Price Rate</th>
                         <th>Borrower</th>
                         <th>Status</th>
                     </tr>
@@ -29,6 +30,7 @@
                         <td>${rent.getEquipment().getEquipmentName()}</td>
                         <td>${rent.getStartDate()}</td>
                         <td>${rent.getPromisedDate()}</td>
+                        <td>${rent.getPriceRate()}</td>
                         <td>${rent.getBorrower().getFirstName()} ${rent.getBorrower().getLastName()}</td>
                         <#if rent.getPromisedDate() lt today>
                             <td>LATE</td>
@@ -39,8 +41,10 @@
                 </#list>
                 </table>
 
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
-                        <h3>#{totalR} Equipment Returns</h3>
+                <table>
+                    <tr>
+                        <th>#{totalI} Equipment Returns</th>
+                    </tr>
                     <tr>
                         <th>Rent Id</th>
                         <th>Equipment</th>
