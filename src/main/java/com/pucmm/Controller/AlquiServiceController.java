@@ -50,7 +50,10 @@ public class AlquiServiceController {
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
 
-        return new ModelAndView("");
+        model.addAttribute("actives", alquiService.findAllActiveRents());
+        model.addAttribute("inactives", alquiService.findAllCompletedRent());
+
+        return new ModelAndView("rents");
     }
 
     @PostMapping("/lend")
