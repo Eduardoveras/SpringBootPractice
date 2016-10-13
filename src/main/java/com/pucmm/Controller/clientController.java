@@ -29,13 +29,12 @@ public class clientController {
         return new ModelAndView("registerClientes");
     }
 
-
     @Secured("ADMIN")
     @PostMapping("/addNewClient")
     public String newClientSubmit(@RequestParam("id") String id, @RequestParam("first") String first, @RequestParam("last") String last, @RequestParam("tel") String tel, @RequestParam("add") String add){
 
         clientService.registerNewClient(id, first, last, tel, add);
 
-        return "redirect:/addClient";
+        return "redirect:/Clients";
     }
 }
