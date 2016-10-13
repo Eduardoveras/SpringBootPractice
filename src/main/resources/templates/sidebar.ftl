@@ -43,6 +43,12 @@
         <a class="mdl-navigation__link" href="/families_subfamilies"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                        role="presentation">developer_board</i>Families and subfamilies</a>
 
+        <a class="mdl-navigation__link" href="/AlquiService"><i class="mdl-color-text--blue-grey-400 material-icons"
+                                                                        role="presentation">developer_board</i>Alqui-service</a>
+
+        <a class="mdl-navigation__link" href="/Rents"><i class="mdl-color-text--blue-grey-400 material-icons"
+                                                                        role="presentation">developer_board</i>Rents</a>
+
 
 
 
