@@ -24,6 +24,7 @@
                         <td>Price Rate</td>
                         <th>Borrower</th>
                         <th>Status</th>
+                        <th>Days Out</th>
                     </tr>
                 <#list rents?sort_by("promisedDate") as rent>
                     <tr>
@@ -38,12 +39,13 @@
                         <#else>
                             <td>COMPLETED</td>
                         </#if>
+                        <td>${rent.getDaysOut()}</td>
                     </tr>
                 </#list>
                 </table>
             </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 600px;">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px;">
                 <h4>Most Popular Equipment: <#if popularE != 'Equipment'>${popularE}<#else>None</#if></h4>
                 <br>
                 <h4>Most Popular Family: <#if popularF != 'Family'>${popularF}<#else>None</#if></h4>
@@ -76,6 +78,44 @@
                         <td>${receipt.getBorrower().getFirstName()} ${receipt.getBorrower().getLastName()}</td>
                         <td>${receipt.getEquipment().getEquipmentId()}</td>
                         <td>${receipt.getEquipment().getEquipmentName()}</td>
+                    </tr>
+                </#list>
+                </table>
+            </div>
+
+            <br><br>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
+                <table>
+                    <tr>
+                        <th>Family Average Rent Statistics</th>
+                    </tr>
+                    <tr>
+                        <th>Family Name</th>
+                        <th>Average</th>
+                    </tr>
+                <#list fAve?keys as average>
+                    <tr>
+                        <th>${average}</th>
+                        <th>${fAve[average]}</th>
+                    </tr>
+                </#list>
+                </table>
+            </div>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
+                <table>
+                    <tr>
+                        <th>Sub-Family Average Rent Statistics</th>
+                    </tr>
+                    <tr>
+                        <th>Sub-Family Name</th>
+                        <th>Average</th>
+                    </tr>
+                <#list sAve?keys as average>
+                    <tr>
+                        <th>${average}</th>
+                        <th>${sAve[average]}</th>
                     </tr>
                 </#list>
                 </table>

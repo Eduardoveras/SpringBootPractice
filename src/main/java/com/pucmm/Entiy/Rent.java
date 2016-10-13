@@ -30,7 +30,7 @@ public class Rent implements Serializable{
 
     }
 
-
+    /*
     public Rent( Date startDate, Date promisedDate, float priceRate, Client borrower, Equipment equipment){
         this.setRentId("PUCMM-T-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
 
@@ -43,7 +43,7 @@ public class Rent implements Serializable{
         this.setEquipment(equipment);
         this.setActive(true);
     }
-
+    */
 
     public Rent(Date promisedDate, float priceRate, Client borrower, Equipment equipment){
         this.setRentId("PUCMM-T-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());

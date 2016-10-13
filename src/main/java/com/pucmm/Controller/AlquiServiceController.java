@@ -10,6 +10,7 @@ import com.pucmm.Entiy.SubFamily;
 import com.pucmm.Service.AlquiService;
 import com.pucmm.Service.ClientService;
 import com.pucmm.Service.InventoryService;
+import com.sun.mail.imap.protocol.FLAGS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AlquiServiceController {
@@ -55,13 +58,14 @@ public class AlquiServiceController {
 
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
-
+        /*
         try {
             alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("9-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("20-11-2016").getTime()), 100.54f, "3");
             alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("01-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("09-10-2016").getTime()), 100.54f, "4");
         } catch (Exception exp){
 
         }
+        */
 
         java.util.Date utilDate = new java.util.Date();
         model.addAttribute("today", new Date(utilDate.getTime()));
@@ -88,6 +92,9 @@ public class AlquiServiceController {
         model.addAttribute("totalR", alquiService.findAllRents().size());
         model.addAttribute("receipts", alquiService.findAllReceipts());
         model.addAttribute("totalT", alquiService.findAllReceipts().size());
+
+        model.addAttribute("fAve", findFamilyDayAverage());
+        model.addAttribute("sAve", findSubFamilyDayAverage());
 
         return new ModelAndView("statistics");
     }
@@ -181,5 +188,47 @@ public class AlquiServiceController {
         }
         
         return stats;
+    }
+
+    private Map<String, Float> findFamilyDayAverage(){
+        Map<String, Float> average = new HashMap<>();
+
+        for (Family f:
+             inventoryService.findAllFamilies()) {
+            int count = 0;
+            Float sum = 0f;
+            for (Rent r:
+                 alquiService.findAllRents())
+                if (r.getEquipment().getFamily().getFamilyName().equals(f.getFamilyName())){
+                    sum += r.getDaysOut();
+                    count++;
+                }
+
+            if (count > 0)
+            average.put(f.getFamilyName(), sum/count);
+        }
+
+        return average;
+    }
+
+    private Map<String, Float> findSubFamilyDayAverage(){
+        Map<String, Float> average = new HashMap<>();
+
+        for (SubFamily s:
+                inventoryService.findAllSubFamilies()) {
+            int count = 0;
+            Float sum = 0f;
+            for (Rent r:
+                    alquiService.findAllRents())
+                if (r.getEquipment().getSubFamily().getSubFamilyName().equals(s.getSubFamilyName())){
+                    sum += r.getDaysOut();
+                    count++;
+                }
+
+            if (count > 0)
+                average.put(s.getSubFamilyName(), sum/count);
+        }
+
+        return average;
     }
 }
