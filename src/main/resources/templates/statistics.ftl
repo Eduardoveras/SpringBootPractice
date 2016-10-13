@@ -36,10 +36,11 @@
                         <td>${rent.getBorrower().getFirstName()} ${rent.getBorrower().getLastName()}</td>
                         <#if rent.isActive()>
                             <td>ACTIVE</td>
+                            <td>${rent.getDaysOut()}</td>
                         <#else>
                             <td>COMPLETED</td>
+                            <td>N/A</td>
                         </#if>
-                        <td>${rent.getDaysOut()}</td>
                     </tr>
                 </#list>
                 </table>
