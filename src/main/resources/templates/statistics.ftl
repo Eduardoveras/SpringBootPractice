@@ -43,6 +43,16 @@
                 </table>
             </div>
 
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 600px;">
+                <h4>Most Popular Equipment: <#if popularE != 'Equipment'>${popularE}<#else>None</#if></h4>
+                <br>
+                <h4>Most Popular Family: <#if popularF != 'Family'>${popularF}<#else>None</#if></h4>
+                <br>
+                <h4>Most Popular Sub-Family: <#if popularSF != 'SubFamily'>${popularSF}<#else>None</#if></h4>
+            </div>
+
+            <br><br>
+
             <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 900px">
                 <table>
                     <tr>

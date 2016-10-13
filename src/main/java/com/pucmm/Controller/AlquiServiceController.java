@@ -3,6 +3,10 @@
  */
 package com.pucmm.Controller;
 
+import com.pucmm.Entiy.Equipment;
+import com.pucmm.Entiy.Family;
+import com.pucmm.Entiy.Rent;
+import com.pucmm.Entiy.SubFamily;
 import com.pucmm.Service.AlquiService;
 import com.pucmm.Service.ClientService;
 import com.pucmm.Service.InventoryService;
@@ -18,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AlquiServiceController {
@@ -72,6 +78,13 @@ public class AlquiServiceController {
     @RequestMapping("/Statistics")
     public ModelAndView getStatistics(Model model){
 
+        model.addAttribute("clients", clientService.findAllClients().size());
+
+        List<String> most = findMostPopular();
+        model.addAttribute("popularE", most.get(0));
+        model.addAttribute("popularF", most.get(1));
+        model.addAttribute("popularSF", most.get(2));
+
         model.addAttribute("rents", alquiService.findAllRents());
         model.addAttribute("totalR", alquiService.findAllRents().size());
         model.addAttribute("receipts", alquiService.findAllReceipts());
@@ -103,5 +116,69 @@ public class AlquiServiceController {
         alquiService.returnRegisteredEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), rentId);
 
         return "redirect:/AlquiService";
+    }
+
+    // Auxiliary Functions
+    private List<String> findMostPopular(){
+        List<String> stats = new ArrayList<>();
+
+        stats.add("Equipment");
+        stats.add("Family");
+        stats.add("SubFamily");
+
+        int max = 0;
+
+        for (Equipment e:
+             inventoryService.findAllEquipments()) {
+            int count = 0;
+
+            for (Rent r:
+                 alquiService.findAllRents()) {
+                if (r.getEquipment().getEquipmentId().equals(e.getEquipmentId()))
+                    count++;
+            }
+
+            if (count > max){
+                max = count;
+                stats.remove(0);
+                stats.add(0, e.getEquipmentName());
+            }
+        }
+
+        for (Family f:
+                inventoryService.findAllFamilies()) {
+            int count = 0;
+
+            for (Rent r:
+                    alquiService.findAllRents()) {
+                if (r.getEquipment().getFamily().getFamilyName().equals(f.getFamilyName()))
+                    count++;
+            }
+
+            if (count > max){
+                max = count;
+                stats.remove(1);
+                stats.add(1, f.getFamilyName());
+            }
+        }
+
+        for (SubFamily s:
+                inventoryService.findAllSubFamilies()) {
+            int count = 0;
+
+            for (Rent r:
+                    alquiService.findAllRents()) {
+                if (r.getEquipment().getSubFamily().getSubFamilyName().equals(s.getSubFamilyName()))
+                    count++;
+            }
+
+            if (count > max){
+                max = count;
+                stats.remove(2);
+                stats.add(2, s.getSubFamilyName());
+            }
+        }
+        
+        return stats;
     }
 }
