@@ -49,7 +49,7 @@ public class AlquiServiceController {
 
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
-        
+
         java.util.Date utilDate = new java.util.Date();
         model.addAttribute("today", new Date(utilDate.getTime()));
 
