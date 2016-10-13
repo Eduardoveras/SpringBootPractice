@@ -11,8 +11,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
             <div style="height: 600px; width: 800px;">
-                <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: block; width: 600px;">
-                    <table>
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                         <tr>
                             <th>Equipment Legend (Total: ${totalE})</th>
                         </tr>
@@ -35,10 +34,8 @@
                         </tr>
                     </#list>
                     </table>
-                </div>
 
-                <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: block; width: 600px">
-                    <table>
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                         <tr>
                             <th>#{totalC} Clients</th>
                         </tr>
@@ -55,7 +52,6 @@
                         </tr>
                     </#list>
                     </table>
-                </div>
             </div>
 
             <div class="mdl-cell mdl-cell--4-col">
@@ -98,8 +94,7 @@
 
             <br><br>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>#{totalR} Rented Equipments</th>
                     </tr>
@@ -126,7 +121,6 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
             <div class="mdl-cell mdl-cell--4-col">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">

@@ -46,10 +46,11 @@
                     </form>
                 </div>
             </div>
-        </div>
 
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px; margin: auto;">
-            <table>
+
+
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
+                <h3>Sub-Families</h3>
                 <tr>
                     <th>Key</th>
                     <th>Name</th>
@@ -66,14 +67,12 @@
                     <td>${equipment.getStock()}</td>
                 </tr>
             </#list>
-            </table>
-        </div>
+            </table></div>
 
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px;">
-            <table>
-                <tr>
-                    <th>Sub-Family Legend</th>
-                </tr>
+
+
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
+                <h3>Sub-Families</h3>
                 <tr>
                     <th>Key</th>
                     <th>Name</th>
@@ -87,8 +86,9 @@
                 </tr>
             </#list>
             </table>
-        </div>
+
     </div>
+
         <!--END LOGIN BOX-->
 
 

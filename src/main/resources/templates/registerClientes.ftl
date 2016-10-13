@@ -58,8 +58,9 @@
                 </div>
             </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
-                <table>
+
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
+                    <h3>Clients</h3>
                     <tr>
                         <th>Id Number</th>
                         <th>First Name</th>
@@ -77,7 +78,7 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
+
         </div>
         <!--END LOGIN BOX-->
 

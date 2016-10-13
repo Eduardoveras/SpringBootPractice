@@ -52,28 +52,27 @@
                 </div>
             </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px">
-                <table>
+
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
                     <tr>
-                        <th>Username</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Permission</th>
+                        <th class="mdl-data-table__cell--non-numeric">Username</th>
+                        <th class="mdl-data-table__cell--non-numeric">First Name</th>
+                        <th class="mdl-data-table__cell--non-numeric">Last Name</th>
+                        <th class="mdl-data-table__cell--non-numeric">Permission</th>
                     </tr>
                 <#list users?sort_by("username") as user>
                     <tr>
-                        <td>${user.getUsername()}</td>
-                        <td>${user.getFirstName()}</td>
-                        <td>${user.getLastName()}</td>
+                        <td class="mdl-data-table__cell--non-numeric">${user.getUsername()}</td>
+                        <td class="mdl-data-table__cell--non-numeric">${user.getFirstName()}</td>
+                        <td class="mdl-data-table__cell--non-numeric">${user.getLastName()}</td>
                         <#if user.isAdmin()>
-                            <td>Admin</td>
+                            <td class="mdl-data-table__cell--non-numeric">Admin</td>
                         <#else>
-                            <td>User</td>
+                            <td class="mdl-data-table__cell--non-numeric">User</td>
                         </#if>
                     </tr>
                 </#list>
                 </table>
-            </div>
         </div>
         <!--END LOGIN BOX-->
 

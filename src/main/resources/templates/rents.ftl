@@ -11,8 +11,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>#{totalR} Active Rents</th>
                     </tr>
@@ -39,13 +38,9 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
-                    <tr>
-                        <th>#{totalR} Equipment Returns</th>
-                    </tr>
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
+                        <h3>#{totalR} Equipment Returns</h3>
                     <tr>
                         <th>Rent Id</th>
                         <th>Equipment</th>
@@ -63,7 +58,6 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
         </div>
     </main>

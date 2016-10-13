@@ -34,11 +34,8 @@
                 </div>
             </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px; display: inline-block;">
-                <table>
-                    <tr>
-                        <th>Families</th>
-                    </tr>
+
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>Key</th>
                         <th>Name</th>
@@ -50,7 +47,7 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
+
 
             <br><br>
 
@@ -82,11 +79,8 @@
                     </div>
                 </div>
 
-                <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin: auto; width: 600px; display: inline-block;">
-                    <table>
-                        <tr>
-                            <th>Sub-Families</th>
-                        </tr>
+
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                         <tr>
                             <th>Key</th>
                             <th>Name</th>
@@ -100,7 +94,7 @@
                         </tr>
                     </#list>
                     </table>
-                </div>
+
         <!--END LOGIN BOX-->
 
 

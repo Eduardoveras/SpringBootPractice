@@ -26,7 +26,7 @@
 
 
         <a class="mdl-navigation__link" href="/Users"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                                     role="presentation">person_add</i>I dont know what this controller does</a>
+                                                                     role="presentation">person_add</i>Users Managment</a>
 
 
 
