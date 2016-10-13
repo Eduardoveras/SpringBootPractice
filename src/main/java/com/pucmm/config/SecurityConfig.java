@@ -17,15 +17,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Appl
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                // ...
-                .csrf().disable();
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers("/admin/**")
+                .hasAnyRole("ADMIN", "USER")
+                .and()
+                .formLogin()
+                .loginPage("/login") //indicando la ruta que estaremos utilizando.
+                .failureUrl("/login?error")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
     }
 
-    //@Override
-    protected void registerAuthentication(AuthenticationManagerBuilder authManagerBuilder) throws Exception {
-        authManagerBuilder
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("ADMIN");
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //Cargando los usuarios en memoria.
+        auth.inMemoryAuthentication()
+                .withUser("vacax")
+                .password("1234")
+                .roles("ADMIN","USER")
+                .and()
+                .withUser("usuario")
+                .password("1234")
+                .roles("USER");
     }
+
+
+
+
 }

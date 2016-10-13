@@ -23,8 +23,7 @@
         <a class="mdl-navigation__link" href="/login"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                          role="presentation">people</i>Login</a>
 
-        <a class="mdl-navigation__link" href="/addNewUserAccount"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                            role="presentation">person_add</i>Add new USERS</a>
+
 
         <a class="mdl-navigation__link" href="/Users"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                                      role="presentation">person_add</i>I dont know what this controller does</a>
@@ -34,23 +33,17 @@
         <a class="mdl-navigation__link" href="/Clients"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                          role="presentation">assignment_ind</i>Clients</a>
 
-        <a class="mdl-navigation__link" href="/addNewClient"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                                role="presentation">assignment</i>Add New Client</a>
+
 
         <a class="mdl-navigation__link" href="/Equipments"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                            role="presentation">list</i>Equipments</a>
 
-        <a class="mdl-navigation__link" href="/addNewEquipment"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                       role="presentation">map</i>Add New Equipment</a>
+
 
         <a class="mdl-navigation__link" href="/families_subfamilies"><i class="mdl-color-text--blue-grey-400 material-icons"
                                                        role="presentation">developer_board</i>Families and subfamilies</a>
 
-        <a class="mdl-navigation__link" href="/addNewFamily"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                                        role="presentation">developer_board</i>Add New Familie</a>
 
-        <a class="mdl-navigation__link" href="/addNewSubFamily"><i class="mdl-color-text--blue-grey-400 material-icons"
-                                                                role="presentation">developer_board</i>Add New Sub-Familie</a>
 
 
         <div class="mdl-layout-spacer"></div>
