@@ -48,7 +48,7 @@ public class AlquiService {
         rentRepository.save(new Rent(promisedDate, priceRate, clientRepository.findByIdentificationNumber(identificationNumber), equipmentRepository.findByEquipmentId(equipmentId)));
     }
 
-    /*
+
     public void lendRegisteredEquipment(String equipmentId, Date startDate, Date promisedDate, float priceRate, String identificationNumber){
         if (!doesEquipmentIdExist(equipmentId))
             throw new IllegalArgumentException("\n\nThis equipment id is invalid");
@@ -64,7 +64,7 @@ public class AlquiService {
 
         rentRepository.save(new Rent(startDate, promisedDate, priceRate, clientRepository.findByIdentificationNumber(identificationNumber), equipmentRepository.findByEquipmentId(equipmentId)));
     }
-    */
+
 
     public void returnRegisteredEquipment(String equipmentId, String rentId){
 

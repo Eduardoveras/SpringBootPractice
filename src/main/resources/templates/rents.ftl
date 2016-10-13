@@ -23,8 +23,9 @@
                     <th>Price Rate</th>
                     <th>Borrower</th>
                     <th>Status</th>
+                    <th>Days Out</th>
                 </tr>
-            <#list actives?sort_by("promisedDate") as rent>
+            <#list actives?sort_by("daysOut")?reverse as rent>
                 <tr>
                     <th>${rent.getRentId()}</th>
                     <td>${rent.getEquipment().getEquipmentName()}</td>
@@ -37,6 +38,7 @@
                     <#else>
                         <td>OK</td>
                     </#if>
+                    <td>${rent.getDaysOut()}</td>
                 </tr>
             </#list>
             </table>

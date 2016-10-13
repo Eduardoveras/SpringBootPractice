@@ -22,13 +22,15 @@ public class Rent implements Serializable{
     @ManyToOne
     private Equipment equipment;
     private boolean active;
+    @Transient
+    private int daysOut;
 
     // Constructors
     public Rent(){
 
     }
 
-    /*
+
     public Rent( Date startDate, Date promisedDate, float priceRate, Client borrower, Equipment equipment){
         this.setRentId("PUCMM-T-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
 
@@ -41,7 +43,7 @@ public class Rent implements Serializable{
         this.setEquipment(equipment);
         this.setActive(true);
     }
-    */
+
 
     public Rent(Date promisedDate, float priceRate, Client borrower, Equipment equipment){
         this.setRentId("PUCMM-T-" + UUID.randomUUID().toString().split("-")[0].toUpperCase());
@@ -111,5 +113,13 @@ public class Rent implements Serializable{
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getDaysOut() {
+        return (int)((new Date(new java.util.Date().getTime()).getTime() - startDate.getTime()) / (24 * 60 * 60 * 1000));
+    }
+
+    public void setDaysOut(int daysOut) {
+        this.daysOut = daysOut;
     }
 }
