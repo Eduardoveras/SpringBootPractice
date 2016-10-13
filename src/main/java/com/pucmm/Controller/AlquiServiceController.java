@@ -4,6 +4,7 @@
 package com.pucmm.Controller;
 
 import com.pucmm.Service.AlquiService;
+import com.pucmm.Service.ClientService;
 import com.pucmm.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,16 @@ public class AlquiServiceController {
     private AlquiService alquiService;
     @Autowired
     private InventoryService inventoryService;
+    @Autowired
+    private ClientService clientService;
 
     @RequestMapping("/AlquiService")
     public ModelAndView register(Model model){
 
         model.addAttribute("equipments", inventoryService.findAllEquipments());
         model.addAttribute("totalE", inventoryService.findAllEquipments().size());
+
+        model.addAttribute("clients", clientService.findAllClients());
 
         return new ModelAndView("AlquiService");
     }

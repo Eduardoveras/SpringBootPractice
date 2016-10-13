@@ -1,6 +1,9 @@
 INSERT INTO users (username, firstname, lastname, pass, permission) VALUES ('admin', 'Administration', '', 'admin', TRUE );
 
 INSERT INTO client (identification_number, firstname, lastname, telephone, address) VALUES ('1', 'Carlos', 'Camacho', '809xxxxxxx', 'Santiago');
+INSERT INTO client (identification_number, firstname, lastname, telephone, address) VALUES ('2', 'Maximo', 'Perez', '809xxxxxxx', 'Santiago');
+INSERT INTO client (identification_number, firstname, lastname, telephone, address) VALUES ('3', 'Lisibonny', 'Beato', '809xxxxxxx', 'Santiago');
+INSERT INTO client (identification_number, firstname, lastname, telephone, address) VALUES ('4', 'Roberto', 'Abrue', '809xxxxxxx', 'Santo Domingo');
 
 INSERT INTO family (fkey, fname) VALUES ('PUCMM-FA-NFECK', 'Muebles');
 INSERT INTO family (fkey, fname) VALUES ('PUCMM-FA-NFRDK', 'Maquinaria');
