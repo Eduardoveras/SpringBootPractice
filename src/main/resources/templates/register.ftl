@@ -53,7 +53,7 @@
             </div>
 
 
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px">
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric">Username</th>
                         <th class="mdl-data-table__cell--non-numeric">First Name</th>

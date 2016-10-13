@@ -11,7 +11,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
 
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                 <tr>
                     <th>#{totalA} Active Rents</th>
                 </tr>

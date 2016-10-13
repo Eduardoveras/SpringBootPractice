@@ -49,7 +49,7 @@
 
 
 
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px">
                 <h3>Sub-Families</h3>
                 <tr>
                     <th>Key</th>
@@ -71,7 +71,7 @@
 
 
 
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px">
                 <h3>Sub-Families</h3>
                 <tr>
                     <th>Key</th>

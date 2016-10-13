@@ -35,7 +35,7 @@
             </div>
 
 
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>Key</th>
                         <th>Name</th>
@@ -80,7 +80,7 @@
                 </div>
 
 
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width: 600px; margin: 8px;">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                         <tr>
                             <th>Key</th>
                             <th>Name</th>

@@ -11,8 +11,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>#{totalR} Rents</th>
                     </tr>
@@ -43,7 +42,6 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
             <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 600px;">
                 <h4>Most Popular Equipment: <#if popularE != 'Equipment'>${popularE}<#else>None</#if></h4>
@@ -55,8 +53,7 @@
 
             <br><br>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 900px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>#{totalT} Transactions</th>
                     </tr>
@@ -81,12 +78,10 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
             <br><br>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>Family Average Rent Statistics</th>
                     </tr>
@@ -101,10 +96,8 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block; width: 800px">
-                <table>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>Sub-Family Average Rent Statistics</th>
                     </tr>
@@ -119,7 +112,6 @@
                     </tr>
                 </#list>
                 </table>
-            </div>
 
         </div>
     </main>
