@@ -37,4 +37,12 @@ public class EquipmentController {
 
         return "redirect:/Equipments";
     }
+
+    @PostMapping("/restockEquipment")
+    public String restockEquipment(@RequestParam("equipment") String equipmentName, @RequestParam("amount") Integer amount){
+
+        inventoryService.restockEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), amount);
+
+        return "redirect:/Equipments";
+    }
 }

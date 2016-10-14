@@ -37,20 +37,15 @@
                                 <label class="mdl-textfield__label" >Stock</label>
                             </div>
                         </div>
-
-
                         <div class="mdl-card__actions mdl-card--border">
                             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Register">
                         </div>
-
                     </form>
                 </div>
             </div>
 
-
-
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px">
-                <h3>Sub-Families</h3>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="display: inline-block; width: 600px; margin: 8px">
+                <h3>Equipments</h3>
                 <tr>
                     <th>Key</th>
                     <th>Name</th>
@@ -67,11 +62,34 @@
                     <td>${equipment.getStock()}</td>
                 </tr>
             </#list>
-            </table></div>
+            </table>
 
+            <br><br>
 
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="display: inline-block;">
+                <form action="/restockEquipment" METHOD="POST" >
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Restock Equipment</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="equipment" name="equipment">
+                            <label class="mdl-textfield__label" >Equipment</label>
+                        </div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="amount" name="amount">
+                            <label class="mdl-textfield__label" >Amount</label>
+                        </div>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
 
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="display: inline-block; width: 600px; margin: 8px">
                 <h3>Sub-Families</h3>
                 <tr>
                     <th>Key</th>
@@ -86,12 +104,7 @@
                 </tr>
             </#list>
             </table>
-
-    </div>
-
-        <!--END LOGIN BOX-->
-
-
+        </div>
     </main>
 </div>
 
