@@ -135,7 +135,7 @@ public class AlquiService {
         if (differenceInDays(today, promisedDate) >=  0) // Equipment is returned on time, NO PENALTY
             return priceRate * differenceInDays(startDate, today);
         else // Equipment is returned late, PENALTY
-            return priceRate * differenceInDays(startDate, promisedDate) + 50.0f * differenceInDays(promisedDate, today);
+            return priceRate * differenceInDays(startDate, promisedDate) + (priceRate/2) * differenceInDays(promisedDate, today);
     }
 
     private int differenceInDays(Date start, Date end){
