@@ -55,14 +55,6 @@ public class AlquiServiceController {
 
     @RequestMapping("/Rents")
     public ModelAndView getRents(Model model){
-        /*
-        try {
-            alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("9-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("20-11-2016").getTime()), 100.54f, "3");
-            alquiService.lendRegisteredEquipment(inventoryService.findEquipmentByName("Laptop").getEquipmentId(), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("01-10-2016").getTime()), new Date(new SimpleDateFormat("dd-MM-yyyy").parse("09-10-2016").getTime()), 100.54f, "4");
-        } catch (Exception exp){
-
-        }
-        */
 
         java.util.Date utilDate = new java.util.Date();
         model.addAttribute("today", new Date(utilDate.getTime()));
