@@ -43,9 +43,27 @@ public class EquipmentController {
             equipment.setImage(procesImageFile(file.getBytes()));
 
             inventoryService.editEquipment(equipment);
-        } catch (IOException e) {
+        } catch (IOException exp) {
             System.out.println("Error while Uploading image");
-        } catch (NullPointerException e) {
+        } catch (NullPointerException exp) {
+            System.out.println("Image data is null");
+        }
+
+        return "redirect:/Equipments";
+    }
+
+    @PostMapping("/editEquipment")
+    public String addImagetoEquipment(@RequestParam("name") String equipmentName, @RequestParam("file") MultipartFile file){
+
+        Equipment equipment = inventoryService.findEquipmentByName(equipmentName);
+
+        try {
+            equipment.setImage(procesImageFile(file.getBytes()));
+
+            inventoryService.editEquipment(equipment);
+        } catch (IOException exp) {
+            System.out.println("Error while Uploading image");
+        } catch (NullPointerException exp) {
             System.out.println("Image data is null");
         }
 
