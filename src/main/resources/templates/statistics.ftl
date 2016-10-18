@@ -82,6 +82,59 @@
 
             <br><br>
 
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                <div id="subFamilyGraph" style=" min-width: 33%"></div>
+                <div id="familyGraph" style=" min-width: 33%"></div>
+            </div>
+
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['geochart','corechart','line',"calendar"]});
+                google.charts.setOnLoadCallback(drawFamilyChart);
+                google.charts.setOnLoadCallback(drawSubFamilyChart);
+
+                function drawFamilyChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Family', 'Average'],
+                    <#list fAve as family>
+                        <#if family?is_last>
+                                [${family}]
+                        <#else>
+                                [${family}],
+                        </#if>
+                    </#list>
+                    ]);
+                    var options = {
+                        title: 'Average Rents Per Family',
+                        'width':300,
+                        'height':300,
+                        legend: 'none'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('familyGraph'));
+                    chart.draw(data, options);
+                }
+
+                function drawSubFamilyChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['SubFamily', 'Average'],
+                    <#list sAve as subFamily>
+                        <#if subFamily?is_last>
+                                [${subFamily}]
+                        <#else>
+                                [${subFamily}],
+                        </#if>
+                    </#list>
+                    ]);
+                    var options = {
+                        title: 'Average Rents Per SubFamily',
+                        'width':300,
+                        'height':300,
+                        legend: 'none'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('subFamilyGraph'));
+                    chart.draw(data, options);
+                }
+            </script>
+
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
                     <tr>
                         <th>Family Average Rent Statistics</th>
