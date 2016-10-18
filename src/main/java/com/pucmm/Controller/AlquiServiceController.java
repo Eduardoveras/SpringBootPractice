@@ -179,8 +179,8 @@ public class AlquiServiceController {
         return stats;
     }
 
-    private Map<String, Float> findFamilyDayAverage(){
-        Map<String, Float> average = new HashMap<>();
+    private ArrayList<String> findFamilyDayAverage(){
+        ArrayList<String> average = new ArrayList<>();
 
         for (Family f:
              inventoryService.findAllFamilies()) {
@@ -194,14 +194,14 @@ public class AlquiServiceController {
                 }
 
             if (count > 0)
-            average.put(f.getFamilyName(), sum/count);
+            average.add("'" + f.getFamilyName() + "', " + Float.toString(sum/count));
         }
 
         return average;
     }
 
-    private Map<String, Float> findSubFamilyDayAverage(){
-        Map<String, Float> average = new HashMap<>();
+    private ArrayList<String> findSubFamilyDayAverage(){
+        ArrayList<String> average = new ArrayList<>();
 
         for (SubFamily s:
                 inventoryService.findAllSubFamilies()) {
@@ -215,7 +215,7 @@ public class AlquiServiceController {
                 }
 
             if (count > 0)
-                average.put(s.getSubFamilyName(), sum/count);
+                average.add("'" + s.getSubFamilyName() + "', " + Float.toString(sum/count));
         }
 
         return average;
