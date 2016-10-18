@@ -83,8 +83,11 @@
             <br><br>
 
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                <div id="subFamilyGraph" style=" min-width: 33%"></div>
                 <div id="familyGraph" style=" min-width: 33%"></div>
+            </div>
+
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                <div id="subFamilyGraph" style=" min-width: 33%"></div>
             </div>
 
             <script type="text/javascript">
@@ -104,7 +107,7 @@
                     </#list>
                     ]);
                     var options = {
-                        title: 'Average Rents Per Family',
+                        title: 'Average Days Rented Per Family',
                         'width':300,
                         'height':300,
                         legend: 'none'
@@ -125,7 +128,7 @@
                     </#list>
                     ]);
                     var options = {
-                        title: 'Average Rents Per SubFamily',
+                        title: 'Average Days Rented Per SubFamily',
                         'width':300,
                         'height':300,
                         legend: 'none'
@@ -134,38 +137,6 @@
                     chart.draw(data, options);
                 }
             </script>
-
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
-                    <tr>
-                        <th>Family Average Rent Statistics</th>
-                    </tr>
-                    <tr>
-                        <th>Family Name</th>
-                        <th>Average</th>
-                    </tr>
-                <#list fAve?keys as average>
-                    <tr>
-                        <th>${average}</th>
-                        <th>${fAve[average]}</th>
-                    </tr>
-                </#list>
-                </table>
-
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px; margin: 8px;">
-                    <tr>
-                        <th>Sub-Family Average Rent Statistics</th>
-                    </tr>
-                    <tr>
-                        <th>Sub-Family Name</th>
-                        <th>Average</th>
-                    </tr>
-                <#list sAve?keys as average>
-                    <tr>
-                        <th>${average}</th>
-                        <th>${sAve[average]}</th>
-                    </tr>
-                </#list>
-                </table>
 
         </div>
     </main>
