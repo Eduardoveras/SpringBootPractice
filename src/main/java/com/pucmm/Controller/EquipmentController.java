@@ -1,5 +1,6 @@
 package com.pucmm.Controller;
 
+import com.pucmm.Entiy.Equipment;
 import com.pucmm.Service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
 
 /**
  * Created by Eduardo veras on 06-Oct-16.
@@ -31,9 +35,19 @@ public class EquipmentController {
 
     @Secured("ADMIN")
     @PostMapping("/addNewEquipment")
-    public String newEquipment(@RequestParam("name") String name, @RequestParam("subfamily") String subFamily, @RequestParam("stock") Integer stock){
+    public String newEquipment(@RequestParam("name") String name, @RequestParam("subfamily") String subFamily, @RequestParam("stock") Integer stock, @RequestParam("file") MultipartFile file){
 
-        inventoryService.registerNewEquipment(name,inventoryService.findSubFamilyBySubFamilyName(subFamily).getSubFamilyKey(),stock);
+        Equipment equipment = inventoryService.registerNewEquipment(name,inventoryService.findSubFamilyBySubFamilyName(subFamily).getSubFamilyKey(),stock);
+
+        try {
+            equipment.setImage(procesImageFile(file.getBytes()));
+
+            inventoryService.editEquipment(equipment);
+        } catch (IOException e) {
+            System.out.println("Error while Uploading image");
+        } catch (NullPointerException e) {
+            System.out.println("Image data is null");
+        }
 
         return "redirect:/Equipments";
     }
@@ -44,5 +58,17 @@ public class EquipmentController {
         inventoryService.restockEquipment(inventoryService.findEquipmentByName(equipmentName).getEquipmentId(), amount);
 
         return "redirect:/Equipments";
+    }
+
+    //Auxiliary Functions
+    private Byte[] procesImageFile(byte[] buffer) {
+        Byte[] bytes = new Byte[buffer.length];
+        int i = 0;
+
+        for (byte b :
+                buffer)
+            bytes[i++] = b; // Autoboxing
+
+        return bytes;
     }
 }

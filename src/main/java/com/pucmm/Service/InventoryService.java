@@ -63,7 +63,7 @@ public class InventoryService {
     }
 
     // Equipment Related Functions
-    public void registerNewEquipment(String equipmentName, String subFamilyKey, Integer stock){
+    public Equipment registerNewEquipment(String equipmentName, String subFamilyKey, Integer stock) {
         if (doesEquipmentNameExist(equipmentName))
             throw new IllegalArgumentException("\n\nThis equipment name: " + equipmentName + " is unavailable");
 
@@ -73,7 +73,11 @@ public class InventoryService {
         if (stock <= 0)
             throw new IllegalArgumentException("\n\nThe stock quantity must be positive");
 
-        equipmentRepository.save(new Equipment(equipmentName, subFamilyRepository.findBySubFamilyKey(subFamilyKey), stock));
+        return equipmentRepository.save(new Equipment(equipmentName, null, subFamilyRepository.findBySubFamilyKey(subFamilyKey), stock));
+    }
+
+    public void editEquipment(Equipment equipment){
+        equipmentRepository.save(equipment);
     }
 
     public void restockEquipment(String equipmentId, Integer stock){ // This function ADDS to the already existing stock; DOES NOT MODIFY

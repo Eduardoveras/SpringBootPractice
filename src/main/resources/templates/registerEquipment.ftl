@@ -12,10 +12,10 @@
 
 
         <!--LOGIN BOX-->
-        <div class="mdl-grid demo-content" style="display: inline-block; width: 500px; margin: auto;">
-            <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-grid demo-content" style="display: inline-block; margin: auto;">
+            <div class="mdl-cell mdl-cell--4-col" style=" width:600px;">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                    <form action="/addNewEquipment" METHOD="POST" >
+                    <form action="/addNewEquipment" METHOD="POST" enctype="multipart/form-data">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Register Equipment #${inventory}</h2>
                         </div>
@@ -37,6 +37,11 @@
                                 <label class="mdl-textfield__label" >Stock</label>
                             </div>
                         </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" id="file" name="file">
+                            </div>
+                        </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Register">
                         </div>
@@ -44,11 +49,12 @@
                 </div>
             </div>
 
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="display: inline-block; width: 600px; margin: 8px">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="display: inline-block; width: 800px; margin: 8px">
                 <h3>Equipments</h3>
                 <tr>
                     <th>Key</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>SubFamily</th>
                     <th>Family</th>
                     <th>Quantity</th>
@@ -57,6 +63,7 @@
                 <tr>
                     <td>${equipment.getEquipmentId()}</td>
                     <td>${equipment.getEquipmentName()}</td>
+                    <#if equipment.getImage()??><td><img src="data:image/jpg;base64,${equipment.getImage()}" alt="Image" /></td><#else><td>No Image Available</td></#if>
                     <td>${equipment.getSubFamily().getSubFamilyName()}</td>
                     <td>${equipment.getSubFamily().getFamily().getFamilyName()}</td>
                     <td>${equipment.getStock()}</td>
